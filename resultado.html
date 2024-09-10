@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resultado Final</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section class="resultado">
+<div id="containerResultado">
+    <h2>Resultado Final</h2>
+    <img src="imgs/csmimg1.jpg" alt="Resultado" id="resultadoImagem">
+    <p>Acertos: <span id="contadorAcertos"></span></p>
+    <p>Erros: <span id="contadorErros"></span></p>
+    <p id="mensagemPersonalizada"></p>
+    <button onclick="reiniciarJogo()">Recomeçar Jogo</button>
+</div>
+
+<script>
+window.onload = function() {
+    const acertos = parseInt(localStorage.getItem("acertos"), 10);
+    const erros = parseInt(localStorage.getItem("erros"), 10);
+
+    document.getElementById("contadorAcertos").innerText = acertos;
+    document.getElementById("contadorErros").innerText = erros;
+
+    // Mensagem personalizada baseada no número de acertos
+    let mensagem;
+    if (acertos > 8) {
+        mensagem = "UAU! você deve amar CSM. Espere o próximo quiz da parte 2!";
+    } else if (acertos > 5) {
+        mensagem = "Você é um fã e tanto de CSM!";
+    } else if (acertos > 3) {
+        mensagem = "Você sabe sobre CSM!";
+    } else {
+        mensagem = "... Tens noção que o protagonista se chama Denji, ao menos?";
+    }
+    document.getElementById("mensagemPersonalizada").innerText = mensagem;
+};
+
+function reiniciarJogo() {
+    localStorage.clear(); // Limpa o localStorage
+    window.location.href = "index.html"; // Volta para a tela inicial
+}
+</script>
+</section>
+</body>
+</html>
