@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 350vh;
+    min-height: 100vh;
 }
 
 #quizContainer {
@@ -98,10 +98,8 @@ footer {
     font-size: 1.2rem;
     color: #333;
 }
-/* css/style.css */
 
 /* Estilos específicos para a página de resultados */
-/* css/style.css */
 
 /* Estilos para o body, centralizando o conteúdo */
 .resultado {
@@ -111,7 +109,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Ajusta a altura mínima para tela cheia */
     background-color: #f4f4f4;
     overflow-x: hidden; /* Evita rolagem horizontal em telas pequenas */
 }
@@ -123,9 +121,10 @@ footer {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     padding: 20px;
-    max-width: 95%; /* Ajusta a largura máxima para caber em telas menores */
+    max-width: 90%; /* Ajusta a largura máxima para caber em telas menores */
     width: 100%;
     box-sizing: border-box; /* Inclui padding e border na largura total */
+    margin: 10px; /* Adiciona margem para evitar que o contêiner fique colado às bordas da tela */
 }
 
 /* Título do resultado */
@@ -156,12 +155,12 @@ button {
     background-color: #007bff;
     border: none;
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 20px; /* Ajusta o padding para garantir um bom tamanho em telas pequenas */
     font-size: 16px;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 20px;
-    width: calc(100% - 20px); /* Ajusta o botão para a largura disponível menos o padding */
+    width: calc(100% - 40px); /* Ajusta a largura do botão para caber bem em telas pequenas */
     box-sizing: border-box; /* Inclui padding na largura total */
 }
 
@@ -173,6 +172,7 @@ button:hover {
 @media (max-width: 600px) {
     #containerResultado {
         padding: 15px; /* Reduz padding em telas menores */
+        margin: 10px; /* Ajusta margem para telas menores */
     }
 
     #containerResultado h2 {
@@ -190,6 +190,11 @@ button:hover {
 }
 
 @media (max-width: 400px) {
+    #containerResultado {
+        padding: 10px; /* Reduz ainda mais o padding para telas muito pequenas */
+        margin: 5px; /* Ajusta margem para telas muito pequenas */
+    }
+
     #containerResultado h2 {
         font-size: 18px; /* Reduz o tamanho da fonte do título para telas muito pequenas */
     }
@@ -200,6 +205,7 @@ button:hover {
 
     button {
         font-size: 12px; /* Ajusta o tamanho da fonte do botão para telas muito pequenas */
-        padding: 8px; /* Ajusta o padding para muito pequenas */
+        padding: 8px; /* Ajusta o padding do botão */
+        width: calc(100% - 20px); /* Ajusta a largura do botão */
     }
 }
