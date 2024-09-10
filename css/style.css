@@ -19,10 +19,7 @@
     padding: 20px;
     box-sizing: border-box;
 }
-@media (max-width: 600px) {
-    #containerResultado {
-        padding: 15px; /* Reduz padding em telas menores */
-    } }
+
 header {
     text-align: center;
     margin-bottom: 20px;
@@ -108,32 +105,34 @@ footer {
 
 /* Estilos para o body, centralizando o conteúdo */
 .resultado {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    text-align: center; /* Alinha o texto no centro */
+    background-color: #f4f4f4;
+    overflow-x: hidden; /* Evita rolagem horizontal em telas pequenas */
 }
 
-/* Estilos específicos para o container de resultados */
+/* Container principal para resultado */
 #containerResultado {
     text-align: center;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     padding: 20px;
-    max-width: 600px;
+    max-width: 95%; /* Ajusta a largura máxima para caber em telas menores */
     width: 100%;
+    box-sizing: border-box; /* Inclui padding e border na largura total */
 }
 
 /* Título do resultado */
 #containerResultado h2 {
     color: #333;
     margin-bottom: 20px;
+    font-size: 24px; /* Tamanho da fonte ajustado para ser legível em dispositivos móveis */
 }
 
 /* Imagem do resultado */
@@ -149,6 +148,7 @@ footer {
     font-size: 18px;
     color: #555;
     margin-top: 20px;
+    line-height: 1.4; /* Melhora a legibilidade em telas pequenas */
 }
 
 /* Botão */
@@ -161,8 +161,45 @@ button {
     border-radius: 4px;
     cursor: pointer;
     margin-top: 20px;
+    width: calc(100% - 20px); /* Ajusta o botão para a largura disponível menos o padding */
+    box-sizing: border-box; /* Inclui padding na largura total */
 }
 
 button:hover {
     background-color: #0056b3;
+}
+
+/* Media Queries para dispositivos menores */
+@media (max-width: 600px) {
+    #containerResultado {
+        padding: 15px; /* Reduz padding em telas menores */
+    }
+
+    #containerResultado h2 {
+        font-size: 20px; /* Ajusta o tamanho da fonte do título */
+    }
+
+    #mensagemPersonalizada {
+        font-size: 16px; /* Ajusta o tamanho da fonte da mensagem personalizada */
+    }
+
+    button {
+        font-size: 14px; /* Ajusta o tamanho da fonte do botão */
+        padding: 10px; /* Ajusta o padding para o botão em telas menores */
+    }
+}
+
+@media (max-width: 400px) {
+    #containerResultado h2 {
+        font-size: 18px; /* Reduz o tamanho da fonte do título para telas muito pequenas */
+    }
+
+    #mensagemPersonalizada {
+        font-size: 14px; /* Ajusta ainda mais o tamanho da fonte para muito pequenas */
+    }
+
+    button {
+        font-size: 12px; /* Ajusta o tamanho da fonte do botão para telas muito pequenas */
+        padding: 8px; /* Ajusta o padding para muito pequenas */
+    }
 }
